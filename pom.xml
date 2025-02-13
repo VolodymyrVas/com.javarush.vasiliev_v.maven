@@ -2,42 +2,81 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Версия модели POM -->
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>jru.module3</groupId>
-    <artifactId>project-maven</artifactId>
-    <version>1.0</version>
+    <!-- Основные метаданные проекта -->
+    <groupId>jru.module3</groupId>  <!-- Уникальный идентификатор организации/группы -->
+    <artifactId>project-maven</artifactId>  <!-- Название артефакта (проекта) -->
+    <version>1.0</version>  <!-- Версия проекта -->
 
+    <!-- Свойства проекта, например, версия Java -->
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>18</maven.compiler.source>  <!-- Версия Java для компиляции -->
+        <maven.compiler.target>18</maven.compiler.target>  <!-- Целевая версия Java -->
+        <os.classifier>linux</os.classifier>  <!-- Изменяем на linux, mac или win -->
     </properties>
 
+    <!-- Раздел зависимостей -->
     <dependencies>
+
+        <!-- Подключаем библиотеку Apache Commons Lang 3.12.0 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>18.0.1</version>
+            <classifier>linux</classifier> <!-- Для Linux -->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
+    <!-- Конфигурация сборки проекта -->
     <build>
         <plugins>
-            <!-- Usual compilation -->
+
+            <!-- Плагин компиляции Java-кода -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <encoding>UTF-8</encoding>  <!-- Устанавливаем кодировку UTF-8 -->
                 </configuration>
             </plugin>
 
-            <!-- Run java-fx app over Maven -->
+            <!-- Плагин для запуска JavaFX-приложения через Maven -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.javarush.games.racer.RacerGame</mainClass>
+                    <mainClass>com.javarush.games.racer.RacerGame</mainClass>  <!-- Главный класс приложения -->
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
