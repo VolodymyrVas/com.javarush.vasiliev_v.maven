@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Racer Game
+Comment=Запуск игры Racer
+Exec=/home/volodymyr/IdeaProjects/com.javarush.vasiliev_v.maven/run.sh
+Icon=/home/volodymyr/IdeaProjects/com.javarush.vasiliev_v.maven/icon.png
+Terminal=false
+Categories=Game;Arcade;
